@@ -5,9 +5,9 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { join } from 'path';
-import { Author } from './author/author.entity';
-import { AuthorResolver } from './author/author.resolver';
-import { AuthorService } from './author/author.service';
+import { Author } from './modules/author/author.entity';
+import { AuthorResolver } from './modules/author/author.resolver';
+import { AuthorService } from './modules/author/author.service';
 
 @Module({
   imports: [
