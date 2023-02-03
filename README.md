@@ -31,4 +31,11 @@ mutation createAuthor {
 
 In the logs of the API, we see the entity manager used by the `@ResolveField` - `computedField`  is the global entity manager (id = 1)
 
-This throws a runtime error.
+This throws a runtime error usually:
+
+ <img width="1920" alt="image" src="https://user-images.githubusercontent.com/62167899/216495653-31b04ca3-0dac-487e-95d5-c84087f831a6.png">
+
+
+
+
+
