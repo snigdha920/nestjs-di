@@ -28,3 +28,7 @@ mutation createAuthor {
 }
 
 ```
+
+In the logs of the API, we see the entity manager used by the `@ResolveField` - `computedField`  is the global entity manager (id = 1)
+
+This throws a runtime error.
