@@ -9,5 +9,13 @@ type Author {
 }
 
 type Query {
-  author: Author!
+  rootQuery: String!
+}
+
+type Mutation {
+  createAuthor: Author!
+}
+
+type Subscription {
+  authorAdded: Author!
 }
