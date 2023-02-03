@@ -21,4 +21,10 @@ subscription authorAdded {
 4. Watch the API logs
 5. Execute the following mutation (while keeping the subscription running in one tab):
 ```
-  ```
+mutation createAuthor {
+  createAuthor {
+    _id
+  }
+}
+
+```
