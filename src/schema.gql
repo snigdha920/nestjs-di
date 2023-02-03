@@ -1,0 +1,13 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  _id: String!
+  name: String!
+  computedField: String!
+}
+
+type Query {
+  author: Author!
+}
