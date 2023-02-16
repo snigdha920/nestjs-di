@@ -1,14 +1,10 @@
 import { MikroORM } from '@mikro-orm/core';
-import { Inject, Injectable } from '@nestjs/common';
-import { PubSub } from 'graphql-subscriptions';
+import { Injectable } from '@nestjs/common';
 import { Author } from './author.entity';
 
 @Injectable()
 export class AuthorService {
-  constructor(
-    private readonly orm: MikroORM,
-    @Inject('PUB_SUB') private readonly pubSub: PubSub,
-  ) {}
+  constructor(private readonly orm: MikroORM) {}
   async findAuthorById(id: string) {
     const authorRepository = this.orm.em.getRepository(Author);
     const author = await authorRepository.findOneOrFail({ id });
@@ -21,8 +17,6 @@ export class AuthorService {
     const author = new Author(name);
 
     await authorRepository.persistAndFlush(author);
-
-    this.pubSub.publish('authorAdded', { authorAdded: author });
 
     return author;
   }

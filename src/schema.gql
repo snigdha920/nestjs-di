@@ -16,7 +16,6 @@ type Author {
   id: ID!
   name: String!
   info: AuthorInfo!
-  computedField: String!
 }
 
 type Query {
@@ -25,8 +24,4 @@ type Query {
 
 type Mutation {
   createAuthor: Author!
-}
-
-type Subscription {
-  authorAdded: Author!
 }
