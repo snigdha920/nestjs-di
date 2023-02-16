@@ -1,6 +1,7 @@
 import { MikroORM, UseRequestContext } from '@mikro-orm/core';
 import { Inject } from '@nestjs/common';
 import {
+  Args,
   Mutation,
   Query,
   ResolveField,
@@ -19,9 +20,9 @@ export class AuthorResolver {
     @Inject('PUB_SUB') private readonly pubSub: PubSub,
   ) {}
 
-  @Query(() => String)
-  async rootQuery() {
-    return 'Hello, World!';
+  @Query(() => Author)
+  async findAuthor(@Args('id') id: string) {
+    return await this.authorService.findAuthorById(id);
   }
 
   @Mutation(() => Author)

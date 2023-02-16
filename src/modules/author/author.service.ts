@@ -20,6 +20,13 @@ export class AuthorService {
     return author;
   }
 
+  async findAuthorById(id: string) {
+    const authorRepository = this.orm.em.getRepository(Author);
+    const author = await authorRepository.findOneOrFail({ id });
+
+    return author;
+  }
+
   async logMikroEM() {
     const em = this.orm.em;
     console.log('EM ID: ', em.id);

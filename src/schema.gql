@@ -20,7 +20,7 @@ type Author {
 }
 
 type Query {
-  getAuthor(id: String!): Author!
+  findAuthor(id: String!): Author!
 }
 
 type Mutation {
