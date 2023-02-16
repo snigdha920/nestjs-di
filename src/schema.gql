@@ -2,14 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AuthorInfo {
+  dateOrNull: DateTime
+  someBoolean: Boolean!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Author {
-  _id: String!
+  id: ID!
   name: String!
+  info: AuthorInfo!
   computedField: String!
 }
 
 type Query {
-  rootQuery: String!
+  getAuthor(id: String!): Author!
 }
 
 type Mutation {
