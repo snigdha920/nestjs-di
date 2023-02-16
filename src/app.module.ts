@@ -3,7 +3,6 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { PubSub } from 'graphql-subscriptions';
 import { join } from 'path';
 import { Author, AuthorInfo } from './modules/author/author.entity';
 import { AuthorResolver } from './modules/author/author.resolver';
@@ -22,20 +21,8 @@ import { AuthorService } from './modules/author/author.service';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       playground: true,
-      subscriptions: {
-        'subscriptions-transport-ws': {
-          path: '/graphql',
-        },
-      },
     }),
   ],
-  providers: [
-    AuthorService,
-    AuthorResolver,
-    {
-      provide: 'PUB_SUB',
-      useValue: new PubSub(),
-    },
-  ],
+  providers: [AuthorService, AuthorResolver],
 })
 export class AppModule {}

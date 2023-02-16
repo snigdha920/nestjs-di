@@ -1,13 +1,6 @@
-import { MikroORM, UseRequestContext } from '@mikro-orm/core';
+import { MikroORM } from '@mikro-orm/core';
 import { Inject } from '@nestjs/common';
-import {
-  Args,
-  Mutation,
-  Query,
-  ResolveField,
-  Resolver,
-  Subscription,
-} from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 import { Author } from './author.entity';
 import { AuthorService } from './author.service';
@@ -29,17 +22,5 @@ export class AuthorResolver {
   async createAuthor() {
     const author = await this.authorService.createAuthor('test');
     return author;
-  }
-
-  @Subscription(() => Author)
-  @UseRequestContext()
-  authorAdded() {
-    return this.pubSub.asyncIterator('authorAdded');
-  }
-
-  @ResolveField(() => String)
-  async computedField() {
-    await this.authorService.logMikroEM();
-    return 'something computed';
   }
 }

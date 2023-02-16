@@ -9,6 +9,13 @@ export class AuthorService {
     private readonly orm: MikroORM,
     @Inject('PUB_SUB') private readonly pubSub: PubSub,
   ) {}
+  async findAuthorById(id: string) {
+    const authorRepository = this.orm.em.getRepository(Author);
+    const author = await authorRepository.findOneOrFail({ id });
+
+    return author;
+  }
+
   async createAuthor(name: string) {
     const authorRepository = this.orm.em.getRepository(Author);
     const author = new Author(name);
@@ -18,19 +25,5 @@ export class AuthorService {
     this.pubSub.publish('authorAdded', { authorAdded: author });
 
     return author;
-  }
-
-  async findAuthorById(id: string) {
-    const authorRepository = this.orm.em.getRepository(Author);
-    const author = await authorRepository.findOneOrFail({ id });
-
-    return author;
-  }
-
-  async logMikroEM() {
-    const em = this.orm.em;
-    console.log('EM ID: ', em.id);
-
-    return em.id;
   }
 }
