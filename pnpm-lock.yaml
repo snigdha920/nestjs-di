@@ -1,9 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@mikro-orm/core': ^5.6.8
-  '@mikro-orm/mongodb': ^5.6.8
-  '@mikro-orm/nestjs': ^5.1.6
+  '@mikro-orm/core': 5.6.11
+  '@mikro-orm/mongodb': 5.6.11
+  '@mikro-orm/nestjs': 5.1.7
   '@nestjs/apollo': ^10.1.7
   '@nestjs/cli': ^9.0.0
   '@nestjs/common': ^9.0.0
@@ -37,9 +37,9 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
-  '@mikro-orm/core': 5.6.8_@mikro-orm+mongodb@5.6.8
-  '@mikro-orm/mongodb': 5.6.8_@mikro-orm+core@5.6.8
-  '@mikro-orm/nestjs': 5.1.6_6oet37cojj7l24ud4oyh25xp64
+  '@mikro-orm/core': 5.6.11_@mikro-orm+mongodb@5.6.11
+  '@mikro-orm/mongodb': 5.6.11_@mikro-orm+core@5.6.11
+  '@mikro-orm/nestjs': 5.1.7_roacefkjwmvmdrzpfylkr6624q
   '@nestjs/apollo': 10.1.7_7wf4p4jjdlh67el6vtfjcw7ede
   '@nestjs/common': 9.3.1_mnr6j2del53muneqly5h4y27ai
   '@nestjs/core': 9.3.1_mxuzwgdlmkyxkz5qwd5xy75hm4
@@ -1891,8 +1891,8 @@ packages:
     resolution: {integrity: sha512-uSvJdwQU5nK+Vdf6zxcWAY2A8r7uqe+gePwLWzJ+fsQehq18pc0I2hJKwypZ2aLM90+Er9u1xn4iLJPZ+xlL4g==}
     engines: {node: '>=8'}
 
-  /@mikro-orm/core/5.6.8_@mikro-orm+mongodb@5.6.8:
-    resolution: {integrity: sha512-R0ex3+3DNXuVm6eZz7t8pXowYkfOH3SU7WsdIeUVvV8I1KLsv3nJqA6ZcrYbyeW68ULho4gWjbkLeiLee88idQ==}
+  /@mikro-orm/core/5.6.11_@mikro-orm+mongodb@5.6.11:
+    resolution: {integrity: sha512-aJZSoEOoKsKtgVrBnxCnb+Q5jxkGbjtm+zC5UH3z5v5uqGgjPjkL0bRkoH5gAENDBcDYB1ujABRXz9jkiAritA==}
     engines: {node: '>= 14.0.0'}
     peerDependencies:
       '@mikro-orm/better-sqlite': ^5.0.0
@@ -1927,18 +1927,18 @@ packages:
       '@mikro-orm/sqlite':
         optional: true
     dependencies:
-      '@mikro-orm/mongodb': 5.6.8_@mikro-orm+core@5.6.8
+      '@mikro-orm/mongodb': 5.6.11_@mikro-orm+core@5.6.11
       acorn-loose: 8.3.0
       acorn-walk: 8.2.0
       dotenv: 16.0.3
       fs-extra: 11.1.0
       globby: 11.1.0
-      mikro-orm: 5.6.8
+      mikro-orm: 5.6.11
       reflect-metadata: 0.1.13
     dev: false
 
-  /@mikro-orm/mongodb/5.6.8_@mikro-orm+core@5.6.8:
-    resolution: {integrity: sha512-uLQMFWAfs6rXdJFFm7g1Nd8ZsS7j6xOoLEmGBRAzWs8tswuEGsf/jTPhSnf8w+y197muWEKVP5cV8tJkaf6QGA==}
+  /@mikro-orm/mongodb/5.6.11_@mikro-orm+core@5.6.11:
+    resolution: {integrity: sha512-l2qWf7XTLO9C82E9lxjdkQEB0xY4EZD7spdusQ01lw+V2nBSp7trnSrop1P5+oa/7AVZ/F/VIG7vP8zrEdp1+Q==}
     engines: {node: '>= 14.0.0'}
     peerDependencies:
       '@mikro-orm/core': ^5.0.0
@@ -1956,22 +1956,22 @@ packages:
       '@mikro-orm/seeder':
         optional: true
     dependencies:
-      '@mikro-orm/core': 5.6.8_@mikro-orm+mongodb@5.6.8
+      '@mikro-orm/core': 5.6.11_@mikro-orm+mongodb@5.6.11
       bson: 4.7.2
       mongodb: 4.13.0
     transitivePeerDependencies:
       - aws-crt
     dev: false
 
-  /@mikro-orm/nestjs/5.1.6_6oet37cojj7l24ud4oyh25xp64:
-    resolution: {integrity: sha512-Bn0O2tekE3mmIvsM4eh6WXantZfJEpj/APEsfh98L7WPM2RqUXr0NeCA6QF15anl6J5VjT3e7jbTthddytR5Ag==}
+  /@mikro-orm/nestjs/5.1.7_roacefkjwmvmdrzpfylkr6624q:
+    resolution: {integrity: sha512-tOJz/mVGlcBqqoorC7QiB+HJZ6oG8gqyzyLOroYWjAdWm1SVOTH2HuVnW/iPzPO0sY2tvxn6UAk01p9yDZ90sA==}
     engines: {node: '>= 14.0.0'}
     peerDependencies:
       '@mikro-orm/core': ^5.0.0 || ^6.0.0-dev.0
       '@nestjs/common': ^8.0.0 || ^9.0.0
       '@nestjs/core': ^8.0.0 || ^9.0.0
     dependencies:
-      '@mikro-orm/core': 5.6.8_@mikro-orm+mongodb@5.6.8
+      '@mikro-orm/core': 5.6.11_@mikro-orm+mongodb@5.6.11
       '@nestjs/common': 9.3.1_mnr6j2del53muneqly5h4y27ai
       '@nestjs/core': 9.3.1_mxuzwgdlmkyxkz5qwd5xy75hm4
     dev: false
@@ -5156,8 +5156,8 @@ packages:
       braces: 3.0.2
       picomatch: 2.3.1
 
-  /mikro-orm/5.6.8:
-    resolution: {integrity: sha512-2dbCjQuj4HQBKtKWAS+bky7M5eallUBYu5FTXGs5QA707SEaAMLW9bEGJ3Iwygv/+9uWmeq7UBWfdlWoVqhmZQ==}
+  /mikro-orm/5.6.11:
+    resolution: {integrity: sha512-hosYoE56IVf10818VqKgIihGmmCeWa8PPchtsZyDhl84KjVpjt4j47ChG1+lhYYQNqLc0X0tIf4JiQ6KAGo5Ng==}
     engines: {node: '>= 14.0.0'}
     dev: false
 
