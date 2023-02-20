@@ -4,7 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { Author, AuthorInfo } from './modules/author/author.entity';
+import { Author } from './modules/author/author.entity';
 import { AuthorResolver } from './modules/author/author.resolver';
 import { AuthorService } from './modules/author/author.service';
 
@@ -14,8 +14,8 @@ import { AuthorService } from './modules/author/author.service';
       dbName: 'nestjs-mikro-test',
       port: 27017,
       driver: MongoDriver,
-      entities: [Author, AuthorInfo],
-      allowGlobalContext: false,
+      entities: [Author],
+      validate: true,
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

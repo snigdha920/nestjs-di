@@ -1,29 +1,11 @@
 import {
-  Embeddable,
-  Embedded,
   Entity,
   PrimaryKey,
   Property,
   SerializedPrimaryKey,
 } from '@mikro-orm/core';
 import { ObjectId } from '@mikro-orm/mongodb';
-import { Field, GraphQLISODateTime, ID, ObjectType } from '@nestjs/graphql';
-
-@Embeddable()
-@ObjectType()
-export class AuthorInfo {
-  @Property({ default: null })
-  @Field(() => GraphQLISODateTime, { nullable: true })
-  dateOrNull: Date | null = null;
-
-  @Property({ default: false })
-  @Field(() => Boolean)
-  someBoolean = false;
-
-  constructor(args: AuthorInfo = { dateOrNull: null, someBoolean: false }) {
-    Object.assign(this, args);
-  }
-}
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 @Entity()
 @ObjectType()
@@ -39,9 +21,9 @@ export class Author {
   @Field()
   name: string;
 
-  @Embedded({ entity: () => AuthorInfo, object: true })
-  @Field(() => AuthorInfo)
-  info = new AuthorInfo();
+  @Property({ default: 0 })
+  @Field(() => Number)
+  bestsellers = 0;
 
   constructor(name: string) {
     this.name = name;
