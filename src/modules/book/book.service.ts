@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import type { AuthorService } from '../author/author.service';
+import { AuthorService } from '../author/author.service';
 
 // @Injectable()
 export class BookService {
-  constructor(private readonly authorService: AuthorService) {}
+  constructor(public readonly authorService: AuthorService) {
+    console.log(`BookService.authorService is`, authorService);
+  }
 
   async getBookAuthor() {
     const author = await this.authorService.getAuthor(); // this.authorService is undefined

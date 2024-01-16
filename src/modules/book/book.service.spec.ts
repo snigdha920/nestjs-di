@@ -24,4 +24,8 @@ describe('BookService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('authorService should be defined', () => {
+    expect(service.authorService).toBeDefined();
+  });
 });
