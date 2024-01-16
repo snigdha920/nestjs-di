@@ -1,31 +1,20 @@
-This repository demonstrates a bug with creation of entities in Mikro ORM v5.6.11 with the option `validate: true` being set.
+# Reproduces unexpected behaviour when declaring and consuming providers
 
-### The problem:
-- When `validate: true` the type of a field is not inferred unless explicitly provided in the `@Property` decorator or the TypeScript definition.
+## The problem
 
+- I have a service `BookService` that has a dependency on `AuthorService`
+- I don't add `@Injectable` decorator on the `BookService` class
+- I use `BookService` in `BookController`
+- I include `BookService` in the `providers` array of the `BookMoudule`
+- When I run `pnpm start:dev`, the `bookService.authorService` is undefined and I get no errors from Nest that it cannot resolve dependencies of `BookService`
 
-### Steps to reproduce:
-1. Run `pnpm start:dev` in the root
-2. Access the GraphQL playground at http://localhost:3000/graphql
-3. Create an author in the GraphQL playground:
+## Steps to reproduce
 
-```
-mutation createAuthor {
-  createAuthor {
-    id
-    name
-  }
-}
+1. Install dependencies with `pnpm i`
+2. Run `pnpm start:dev` in the root
+3. No errors in the console, but we see the message from the `BookService` constructor: `BookService.authorService is undefined`
+4. In the test `book.service.spec.ts`, we successfully get the `BookService` from the module context, but `bookService.authorService` is `undefined`. Run the test by `pnpm test`
 
-```
+## What is expected?
 
-
-You'll get the error: 
-```
-"Trying to set Author.bestsellers of type 'string' to '0' of type 'number'"
-```
-
-<img width="2032" alt="image" src="https://user-images.githubusercontent.com/62167899/220098749-d0f9cea7-4640-4c07-beea-6ccd23ff325f.png">
-
-
-
+Since we've added `BookService` in the providers array, and it is being consumed by the `BookController`, I would expect Nest to throw an error that it cannot resolve the dependencies of `BookService` and that we should add `@Injectable` decorator on the `BookService` class.
