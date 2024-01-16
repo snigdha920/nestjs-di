@@ -1,4 +1,4 @@
-# Reproduces unexpected behaviour when declaring and consuming providers
+# Reproduces unexpected behaviour with providers
 
 ## The problem
 
@@ -17,4 +17,4 @@
 
 ## What is expected?
 
-Since we've added `BookService` in the providers array, and it is being consumed by the `BookController`, I would expect Nest to throw an error that it cannot resolve the dependencies of `BookService` and that we should add `@Injectable` decorator on the `BookService` class.
+Since we've added `BookService` in the providers array, and it is being consumed by the `BookController`, I would expect Nest to throw an error that it cannot resolve the dependencies of `BookService`
